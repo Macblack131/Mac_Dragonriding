@@ -1,0 +1,105 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+UI_shared.xsd">
+
+    <Script file="Mac_Dragonriding.lua" />
+
+    <StatusBar name="ReserveOfEnergyTemplate" drawLayer="BORDER" orientation="VERTICAL" mixin="ReserveOfEnergyMixin" virtual="true">
+        <BarTexture file="Interface\Addons\Mac_Dragonriding\boost-of-energy-band"/>
+        <Size x="32" y="32" />
+        <Layers>
+            <Layer level="BACKGROUND" textureSubLevel="1">
+                <Texture parentKey="Background" file="Interface\Addons\Mac_Dragonriding\boost-of-energy-background">
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK" textureSubLevel="2">
+                <Texture parentKey="Frame" file="Interface\Addons\Mac_Dragonriding\boost-of-energy-frame">
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
+        <Scripts>        
+            <OnLoad method="OnLoad"/>
+            <OnUpdate method="OnUpdate"/>
+        </Scripts>
+    </StatusBar>
+
+    <Frame name="Mac_Dragonriding" mixin="Mac_DragonridingMixin" parent="UIWidgetPowerBarContainerFrame" hidden="true">
+        <Anchors>
+            <Anchor point="CENTER" x="0" y="0" />
+        </Anchors>
+        <Size x="226" y="64" />
+        <Layers>
+            <Layer level="BORDER" textureSubLevel="3">
+                <Texture parentKey="Icon">
+                    <Size x="45" y="45" />
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parent" relativePoint="LEFT" x="1" y="7" />
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK" textureSubLevel="4">
+                <Texture parentKey="Frame" file="Interface\Addons\Mac_Dragonriding\frame">
+                    <TexCoords left="0" right="0.8828" top="0" bottom="1"/>
+                    <Anchors>
+                        <Anchor point="CENTER"/>
+                    </Anchors>
+                    <Size x="226" y="64" />
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY" textureSubLevel="3">
+                <FontString parentKey="Text" inherits="GameFontHighlightSmall">
+                    <Size x="185" y="16" />
+                    <Anchors>
+                        <Anchor point="CENTER" x="20" y="24"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Frames>
+            <Frame parentKey="ReservesOfVigor" inherits="HorizontalLayoutFrame" mixin="ReservesOfVigorMixin">
+                <Anchors>
+                    <Anchor point="LEFT" x="49" y="-17"/>
+                </Anchors>
+                <KeyValues>
+                    <KeyValue key="spacing" value="-4" type="number"/>
+                    <KeyValue key="fixedHeight" value="32" type="number"/>
+                </KeyValues>
+                <Scripts>
+                    <OnLoad method="OnLoad"/>
+                </Scripts>
+            </Frame>
+            <StatusBar parentKey="SpeedLane" drawLayer="ARTWORK" orientation="HORIZONTAL" mixin="SpeedLaneMixin">
+                <BarTexture file="Interface\Addons\Mac_Dragonriding\speed-lane"/>
+                <Anchors>
+                    <Anchor point="CENTER" x="62" y="7"/>
+                </Anchors>
+                <Size x="256" y="16" />
+                <Layers>
+                    <Layer level="OVERLAY" textureSubLevel="3">
+                        <FontString parentKey="Text" inherits="GameFontHighlightSmall">
+                            <Size x="185" y="16" />
+                            <Anchors>
+                                <Anchor point="CENTER" x="-45" y="1"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>   
+                <Scripts>        
+                    <OnLoad method="OnLoad"/>
+                    <OnEvent method="OnEvent"/>
+                    <OnUpdate method="OnUpdate"/>
+                </Scripts>
+            </StatusBar>
+        </Frames>
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+            <OnEvent method="OnEvent"/>
+        </Scripts>
+    </Frame>
+
+</Ui>
