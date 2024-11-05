@@ -3,6 +3,7 @@
 ## Version: 1
 ## Author: Mac
 ## IconTexture: Interface\AddOns\Mac_NamePlateAuras\icon.tga
+## SavedVariables: Mac_DragonridingDB
 
 Mac_Dragonriding.xml
 
